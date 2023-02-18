@@ -3,11 +3,12 @@
 
 -- demonstrates comparing two REAL numbers
 SELECT A, B, A = B FROM
-    ( 
-    SELECT 
-        ( ( .1 + .2 ) * 10 ) AS A, 
-        ( 1.0 + 2.0 ) AS B
-    );
+  ( 
+  SELECT 
+    ( ( .1 + .2 ) * 10 ) AS A, 
+      ( 1.0 + 2.0 ) AS B
+  )
+;
 
 -- 02 typeof
 -- :memory:

@@ -1,10 +1,10 @@
 
 -- 02 JOIN
--- test.db
+-- :memory:
 
 -- join example tables, left and right
-CREATE TABLE left ( id INTEGER, description TEXT );
-CREATE TABLE right ( id INTEGER, description TEXT );
+CREATE TABLE left ( id INT PRIMARY KEY, description TEXT );
+CREATE TABLE right ( id INT PRIMARY KEY, description TEXT );
 
 INSERT INTO left VALUES ( 1, 'left 01' );
 INSERT INTO left VALUES ( 2, 'left 02' );
@@ -22,9 +22,9 @@ INSERT INTO right VALUES ( 8, 'right 08' );
 INSERT INTO right VALUES ( 9, 'right 09' );
 INSERT INTO right VALUES ( 10, 'right 10' );
 INSERT INTO right VALUES ( 11, 'right 11' );
-INSERT INTO right VALUES ( 11, 'right 12' );
-INSERT INTO right VALUES ( 11, 'right 13' );
-INSERT INTO right VALUES ( 11, 'right 14' );
+INSERT INTO right VALUES ( 12, 'right 12' );
+INSERT INTO right VALUES ( 13, 'right 13' );
+INSERT INTO right VALUES ( 14, 'right 14' );
 
 SELECT * FROM left;
 SELECT * FROM right;
@@ -55,9 +55,9 @@ SELECT s.id AS sale, s.date, i.name, i.description, s.price
 -- 03 Junction Table
 -- test.db
 
-SELECT * FROM customer;
-SELECT * FROM item;
 SELECT * FROM sale;
+SELECT * FROM item;
+SELECT * FROM customer;
 
 SELECT i.name AS Item, c.name AS Cust, s.price AS Price
   FROM sale AS s

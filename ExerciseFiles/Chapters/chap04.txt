@@ -1,5 +1,16 @@
 
--- 01 WHERE, LIKE, and IN
+-- 01 ORDER BY
+-- world.db
+
+SELECT Name FROM Country;
+SELECT Name FROM Country ORDER BY Name;
+SELECT Name FROM Country ORDER BY Name DESC;
+SELECT Name FROM Country ORDER BY Name ASC;
+SELECT Name, Continent FROM Country ORDER BY Continent, Name;
+SELECT Name, Continent, Region FROM Country ORDER BY Continent DESC, Region, Name;
+
+
+-- 02 WHERE, LIKE, and IN
 -- world.db
 
 SELECT * FROM Country;
@@ -9,14 +20,13 @@ SELECT Name, Continent, Population FROM Country WHERE Population < 100000 AND Co
 SELECT Name, Continent, Population FROM Country WHERE Name LIKE '%island%' ORDER BY Name;
 SELECT Name, Continent, Population FROM Country WHERE Continent IN ('Europe', 'Asia') ORDER BY Name;
 
--- 02 SELECT DISTINCT
+-- 03 SELECT DISTINCT
 -- world.db
 
 SELECT Continent FROM Country;
 SELECT DISTINCT Continent FROM Country;
-Using the SELECT DISTINCT statement, you will get only unique results. 
 
--- test.db
+-- :memory:
 
 CREATE TABLE test ( a int, b int );
 INSERT INTO test VALUES ( 1, 1 );
@@ -37,21 +47,11 @@ SELECT DISTINCT a, b FROM test;
 
 DROP TABLE test;
 
--- 03 ORDER BY
--- world.db
-
-SELECT Name FROM Country;
-SELECT Name FROM Country ORDER BY Name;
-SELECT Name FROM Country ORDER BY Name DESC;
-SELECT Name FROM Country ORDER BY Name ASC;
-SELECT Name, Continent FROM Country ORDER BY Continent, Name;
-SELECT Name, Continent, Region FROM Country ORDER BY Continent DESC, Region, Name;
-
 -- 04 CASE
--- test.db
+-- :memory:
 
-CREATE TABLE booltest (a INTEGER, b INTEGER);
-INSERT INTO booltest VALUES (1, 0);
+CREATE TABLE booltest (a INT, b INT);
+INSERT INTO booltest VALUES (TRUE, FALSE);
 SELECT * FROM booltest;
 
 SELECT
@@ -61,9 +61,9 @@ SELECT
 ;
 
 SELECT
-    CASE a WHEN 1 THEN 'true' ELSE 'false' END AS boolA,
-    CASE b WHEN 1 THEN 'true' ELSE 'false' END AS boolB 
+    CASE a WHEN TRUE THEN 'true' ELSE 'false' END AS boolA,
+    CASE b WHEN TRUE THEN 'true' ELSE 'false' END AS boolB 
     FROM booltest
 ;
 
-DROP TABLE booltest;
+DROP TABLE IF EXISTS booltest;

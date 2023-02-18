@@ -12,7 +12,7 @@ INSERT INTO test VALUES ( 3, 'c' );
 SELECT * FROM test;
 
 -- 02 DROP TABLE
--- :memory:
+-- test
 
 CREATE TABLE test ( a TEXT, b TEXT );
 INSERT INTO test VALUES ( 'one', 'two' );
